@@ -1,0 +1,9 @@
+1. Setup following ReadMe.txt
+
+2. Dowload yq from https://github.com/mikefarah/yq and place in root dir
+
+3. Create tools folder and clone https://github.com/CrunchyData/pgmonitor.git
+
+4. Move docker.io in top of /etc/containers/registries.conf
+
+5. Run Make

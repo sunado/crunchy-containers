@@ -16,12 +16,21 @@ ARG PG_MAJOR
 # Needed due to lack of environment substitution trick on ADD
 ARG PG_LBL
 
+
+# RUN ${PACKAGER} -y install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+
+# RUN ${PACKAGER} list postgresql${PG_LBL}
+
 RUN ${PACKAGER} -y install \
 	--setopt=skip_missing_names_on_install=False \
-	--disablerepo=crunchypg* \
-	--enablerepo="crunchypg${PG_LBL}" \
+#	--disablerepo=crunchypg* \
+#	--enablerepo="crunchypg${PG_LBL}" \
 	postgresql${PG_LBL} \
  && ${PACKAGER} -y clean all
+
+# RUN /usr/pgsql-12/bin/postgresql-12-setup initdb
+# RUN systemctl enable postgresql-12
+# RUN systemctl start postgresql-12
 
 # Preserving PGVERSION out of paranoia
 ENV PGROOT="/usr/pgsql-${PG_MAJOR}" PGVERSION="${PG_MAJOR}"

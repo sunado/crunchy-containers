@@ -24,8 +24,8 @@ ADD conf/crunchypg*.repo /etc/yum.repos.d/
 # well as unzip
 RUN ${PACKAGER} -y install \
 	--setopt=skip_missing_names_on_install=False \
-	--disablerepo=crunchypg* \
-	--enablerepo="crunchypg${PG_MAJOR//.}" \
+#	--disablerepo=crunchypg* \
+#	--enablerepo="crunchypg${PG_MAJOR//.}" \
 	"postgresql${PG_MAJOR//.}" \
 	"postgresql${PG_MAJOR//.}-contrib" \
 	"postgresql${PG_MAJOR//.}-server" \
@@ -38,8 +38,8 @@ RUN ${PACKAGER} -y install \
 # above, but the dependencies are handled
 RUN ${PACKAGER} -y install \
 	--setopt=skip_missing_names_on_install=False \
-	--disablerepo=* \
-	--enablerepo=crunchypg* \
+#	--disablerepo=* \
+#	--enablerepo=crunchypg* \
 	postgresql[1-9][0-9] \
 	postgresql[1-9][0-9]-contrib \
 	postgresql[1-9][0-9]-server \
