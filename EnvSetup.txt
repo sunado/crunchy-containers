@@ -7,3 +7,17 @@
 4. Move docker.io in top of /etc/containers/registries.conf
 
 5. Run Make
+
+6. create local registry:  docker run -d -p 5000:5000 --restart=always --name registry registry:2
+
+6. Push image to local: ./pushImageToLocal.sh
+
+7. Delete exist minikube
+
+8. create new minikube: minikube start --insecure-registry="yourmachineip:5000"
+
+9. Install postgre-operator
+
+10. create cluster : pgo create cluster hippo --ccp-image-prefix yourmachineip:5000 --ccp-image crunchy-postgres-ha --ccp-image-tag latest
+
+
