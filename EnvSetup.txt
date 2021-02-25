@@ -1,14 +1,12 @@
 1. Setup following ReadMe.txt
 
-2. Dowload yq from https://github.com/mikefarah/yq and place in root dir
+2. Download repo and copy to "conf"  form https://www.crunchydata.com/developers/download-postgres/binaries/postgresql13
 
-3. Create tools folder and clone https://github.com/CrunchyData/pgmonitor.git
+3. Run "make setup"
 
-4. Move docker.io in top of /etc/containers/registries.conf
+4. Run "make"
 
-5. Run Make
-
-6. create local registry:  docker run -d -p 5000:5000 --restart=always --name registry registry:2
+5. create local registry:  docker run -d -p 5000:5000 --restart=always --name registry registry:2
 
 6. Push image to local: ./pushImageToLocal.sh
 
@@ -18,6 +16,5 @@
 
 9. Install postgre-operator
 
-10. create cluster : pgo create cluster hippo --ccp-image-prefix yourmachineip:5000 --ccp-image crunchy-postgres-ha --ccp-image-tag latest
-
+10. create cluster : pgo create cluster hippo --ccp-image-prefix yourmachineip:5000/crunchydata --ccp-image crunchy-postgres-ha --ccp-image-tag latest
 
